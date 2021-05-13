@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Software</title>
+  <link rel="stylesheet" href="../static/formulario.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../static/formulario.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container logo-nav-container">
+      <a href="#" class="logo">Roma Consulting</a>
+      <span class="menu-icon">Ver Menu</span>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Prestamos</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Prestamos Personales</a>
+              <a class="dropdown-item" href="#">Prestamos ...</a>
+              <a class="dropdown-item" href="#">Prestamos ..1</a>
+            </div>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+
+
+  <main class="main">
+    <div class="container">
+      <h1>Solicita Nuestros Servicios</h1>
+
+    </div>
+
+
+    <form action="">
+      <h2>CONTACTO</h2>
+      <!-- TODO: SELECCIONAR SI ES EMPRESA O PERSONA NATURAL -->
+      <input type="text" name="Nombre" placeholder="Nombres Del Solicitante" id="Nombre" class="inpt">
+      <input type="text" name="Apellido" placeholder="Apellidos Del Solictante" id="Apellido" class="inpt">
+      <input type="text" name="Correo" placeholder="Correo de Contacto" class="inpt" id="Correo">
+      <input type="tel" name="Telefono" placeholder="Telefono" id="" class="inpt" id="Telefono">
+      <select class="form-select inpt" aria-label="Default select example" class="inpt" id="EsEmpresa">
+        <option selected value="False">Persona Natural</option>
+        <option value="True">Empresa</option>
+      </select>
+      <input type="text" name="DNI" placeholder="DNI" id="DNI" class="inpt">
+      <input type="text" name="RUC" placeholder="RUC" id="RUC" class="inpt">
+      <input type="text" name="RazonSocial" placeholder="Razon Social" id="RazonSocial" class="inpt">
+      <!-- TODO: SELECCIONAR EL TIPO DE SERVICIO QUE SE OFRECE EN BASE A LA BASE DE DATOS QUE SE TIENE -->
+      <select class="form-select inpt" aria-label="Default select example" class="inpt" id="Servicio" name="Servicio">
+        <option selected value="False">Persona Natural</option>
+        <option value="True">Empresa</option>
+      </select>
+      <!-- TODO: DROPDOWN DE EMPLEADO O DESEMPLEADO -->
+      <select class="form-select inpt" aria-label="Default select example" class="inpt" id="Servicio"
+        name="EstadoLaboral">
+        <option selected value="False">Persona Natural</option>
+        <option value="True">Empresa</option>
+      </select>
+      <!-- TODO: DROPDOWN DEL RUBRO -->
+      <select class="form-select inpt" aria-label="Default select example" class="inpt" id="RubroDeTrabajo"
+        name="RubroDeTrabajo">
+        <option selected value="False">Persona Natural</option>
+        <option value="True">Empresa</option>
+      </select>
+      <!-- AGRANDAR EL CAMPO DE DESCRIPCION -->
+      <textarea name="DescripcionDeTrabajo" placeholder="Escriba aqui su mensaje" id="DescripcionDeTrabajo"
+        class="inpt"></textarea>
+      <textarea name="Mensaje" placeholder="Escriba aqui su mensaje" id="Mensaje" class="inpt"></textarea>
+      <button type="submit" id="boton">ENVIAR</button>
+    </form>
+  </main>
+
+  <footer class="bg-dark text-center text-white" style="margin-top: 20px;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Sign up for our newsletter</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="form5Example2" class="form-control" placeholder="Email Address" />
+
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-auto">
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script>
+    function main() {
+      var oReq = new XMLHttpRequest()
+      oReq.open("GET", window.location.host + "formularioData", true);
+      oReq.onreadystatechange = function (evt) {
+        if (oReq.readyState == XMLHttpRequest.DONE && oReq.status == 200) {
+          var resp = oReq.responseText;
+          var jsLista = JSON.parse(resp);
+          console.log(jsLista);
+          
+          
+          }
+        }
+        oReq.send(null);
+      }
+      
+      window.onload = main;
+
+
+  </script>
+
+</body>
+
+</html>
